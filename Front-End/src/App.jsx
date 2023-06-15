@@ -8,8 +8,12 @@ import { Register } from "./Register";
 import {About} from "./About";
 import {Contact} from "./Contact";
 import {Booking} from "./Booking"
-
+import {Flight} from "./Flight";
 import { Home } from "./Home";
+import { AdminHome } from "./AdminHome";
+import { AddAirPort } from "./AddAirport";
+import { Display } from "./Display";
+import { AdminLogin } from "./AdminLogin";
 
 function App() {
   const navigate = useNavigate();
@@ -40,6 +44,11 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
           <Route path="/Booking" element={<Booking />} />
+          <Route path="/admin" element={<AdminHome />} />
+          <Route path="/flight" element={<Flight />} />
+          <Route path="/airport" element={<AddAirPort />} />
+          <Route path="/display" element={<Display />} />
+          <Route path="/adminLogin" element={<AdminLogin />} />
         </Routes>
     </div>
   );

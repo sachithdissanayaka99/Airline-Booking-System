@@ -1,10 +1,19 @@
 package com.AirlineBookingSystem.Dto;
 
-public record BookingDto(
-    Integer id,
-    String name,
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    Integer ageInMonths,
-    String type){
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class BookingDto{
 
+    private int id;
+    private String status;
+    private int seatNumber;
+    private String paymentInfo;
+    private String fareClass;
+    private int passengerId;
+    private int reservationId;
 }

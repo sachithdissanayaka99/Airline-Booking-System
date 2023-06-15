@@ -39,12 +39,8 @@
   float: left;
   padding: 0;
   cursor: pointer;
-  margin-right: 0;
 }
 
-.logo {
-  margin-right: 0;
-}
 .nav ul {
   list-style: none;
 

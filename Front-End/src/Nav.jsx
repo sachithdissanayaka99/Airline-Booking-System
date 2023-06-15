@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./nav.css";
 import AuthService from "./services/auth.service";
-import NotificationAlertIcon from "./NotificationAlert";
 
 export const Nav = () => {
   const navigate = useNavigate();
@@ -174,6 +173,16 @@ export const Nav = () => {
               <span></span>
             </li>
           )}
+          {!currentUser && (
+            <li
+              className="adminLogin-button"
+              onClick={() => handleItemClick("/adminLogin")}
+            >
+              <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Admin Login
+              <span></span>
+            </li>
+          )}
+          
         </ul>
         <div className="menu-btn">
           <i className="fa fa-bars" aria-hidden="true"></i>

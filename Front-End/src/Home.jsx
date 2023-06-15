@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PostService from "./services/post.service";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 

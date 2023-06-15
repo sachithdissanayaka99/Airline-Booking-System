@@ -11,7 +11,7 @@ export const Register = (props) => {
   const [name, setName] = useState("");
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
-  const [role,setRole] = useState("USER");
+  const [role,setRole] = useState("");
 
   const navigate = useNavigate();
 
