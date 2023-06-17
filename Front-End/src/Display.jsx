@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import "./Display.css";
-import { useNavigate } from "react-router-dom";
-import FlightService from "./services/flight_service";
 
 export const Display = () => {
   const [flightData, setFlightData] = useState([
@@ -63,37 +61,9 @@ export const Display = () => {
   
     // Add more airport data objects here...
   ]);
+  
 
-  const handleFlightUpdate = (flightId) => {
-    // Handle flight update for the given flightId
-    console.log("Flight update for ID:", flightId);
-  };
-
-  const handleFlightDelete = (flightId) => {
-    FlightService.deleteFlight(flightId) // Call the deleteFlight method from 'auth'
-      .then((data) => {
-        console.log("Flight delete response:", data);
-        // Update the flightData state by filtering out the deleted flight
-        setFlightData((prevFlightData) =>
-          prevFlightData.filter((flight) => flight.flightId !== flightId)
-        );
-      })
-      .catch((error) => {
-        console.error("Flight delete error:", error);
-        // Handle any error that occurred during the delete request
-      });
-  };
-
-  const handleAirportUpdate = (airportCode) => {
-    // Handle airport update for the given airportCode
-    console.log("Airport update for Code:", airportCode);
-  };
-
-  const handleAirportDelete = (airportCode) => {
-    // Handle airport deletion for the given airportCode
-    console.log("Airport delete for Code:", airportCode);
-  };
-
+  
   return (
     <div>
       <Header />

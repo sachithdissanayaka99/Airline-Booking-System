@@ -11,7 +11,7 @@ export const Register = (props) => {
   const [name, setName] = useState("");
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
-  const [role,setRole] = useState("");
+  const [role,setRole] = useState("USER");
 
   const navigate = useNavigate();
 
@@ -41,7 +41,7 @@ export const Register = (props) => {
       await AuthService.signup(firstname, lastname, email, password,role).then(
         (response) => {
           console.log("Account Created", response);
-          navigate("/home");
+          navigate("/login");
           window.location.reload();
         },
         (error) => {
@@ -131,7 +131,7 @@ export const Register = (props) => {
             <b>SIGNUP</b>
           </button>
         </form>
-        <button className="link-btn" onClick={() => navigate("/")}>
+        <button className="link-btn" onClick={() => navigate("/login")}>
           Already have an account? Login here.
         </button>
       </div>

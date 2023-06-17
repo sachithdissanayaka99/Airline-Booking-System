@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 public class AirportDto {
 
     private Integer airportCode;
-    private String name;
-    private String city;
-    private String country;
-    private String contactInfo;
+    private String  name;
+    private String  city;
+    private String  country;
+    private String  contactInfo;
 }

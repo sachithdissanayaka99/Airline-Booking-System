@@ -16,10 +16,23 @@ const addFlight = (flightId, airportCode, flightStatus, totalNumOfSeat, bookedSe
     })
     .then((response) => {
       console.log(response);
-      if (response.data.access_token) {
-        // Stores the user object in local storage if a token is present in the response
-        localStorage.setItem("user", JSON.stringify(response.data));
-      }
+      return response.data;
+    });
+};
+
+// Updates a flight by making a PUT request to the API
+const updateFlight = (flightId, airportCode, flightStatus, totalNumOfSeat, bookedSeat, arrivalTime, departureTime) => {
+  return axios
+    .put(API_URL + `/updateFlight/${flightId}`, {
+      airportCode,
+      flightStatus,
+      totalNumOfSeat,
+      bookedSeat,
+      arrivalTime,
+      departureTime,
+    })
+    .then((response) => {
+      console.log(response);
       return response.data;
     });
 };
@@ -32,10 +45,19 @@ const deleteFlight = (flightId) => {
   });
 };
 
+// Gets all flights from the API
+const getAllFlights = () => {
+  return axios.get(API_URL + "/getAllFlight").then((response) => {
+    console.log(response);
+    return response.data;
+  });
+};
+
 const auth = {
   addFlight,
+  updateFlight,
   deleteFlight,
+  getAllFlights,
 };
 
 export default auth;
-

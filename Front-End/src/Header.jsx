@@ -97,7 +97,7 @@ export const Header = () => {
           className="logo"
           src="src/components/Images/logo.jpeg"
           style={logoStyle} // Apply the logoStyle to the image
-          onClick={() => handleItemClick("/home")}
+          onClick={() => handleItemClick("/")}
         />
 
         <ul className="nav-items">

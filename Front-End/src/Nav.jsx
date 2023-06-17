@@ -108,7 +108,7 @@ export const Nav = () => {
           alt="logo"
           className="logo"
           src="src/components/Images/pngegg.png"
-          onClick={() => handleItemClick("/Home")}
+          onClick={() => handleItemClick("/")}
           />
 
         
@@ -117,8 +117,8 @@ export const Nav = () => {
         <ul className="nav-items">
           {currentUser && (
             <li
-            className={location.pathname === "/Home" ? "active" : ""}
-            onClick={() => handleItemClick("/Home")}
+            className={location.pathname === "/" ? "active" : ""}
+            onClick={() => handleItemClick("/")}
             >
               Home<span></span>
             </li>
@@ -157,7 +157,7 @@ export const Nav = () => {
           ) : (
             <li
             className="login-button"
-              onClick={() => handleItemClick("/")}
+              onClick={() => handleItemClick("/login")}
             >
               <i className="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log In
               <span></span>
