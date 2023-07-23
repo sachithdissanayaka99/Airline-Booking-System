@@ -3,8 +3,8 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 
 const images = [
-  "src/components/Bacgroundimg.jpeg",
-  "src/components/Bacgroundimg4.jpeg",
+  "src/assets/Bacgroundimg.jpeg",
+  "src/assets/Bacgroundimg4.jpeg",
   
  
   

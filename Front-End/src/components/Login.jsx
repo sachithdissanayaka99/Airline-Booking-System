@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 //import axios from "axios";
-import AuthService from "./services/auth.service";
+import AuthService from "../services/auth.service";
 import "./Login.css"
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";

@@ -3,17 +3,17 @@ import { Routes, Route, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import AuthService from "./services/auth.service";
 import "./App.css";
-import { Login } from "./Login";
-import { Register } from "./Register";
-import {About} from "./About";
-import {Contact} from "./Contact";
-import {Booking} from "./Booking"
-import {Flight} from "./Flight";
-import { Home } from "./Home";
-import { AdminHome } from "./AdminHome";
-import { AddAirPort } from "./AddAirport";
-import { Display } from "./Display";
-import { AdminLogin } from "./AdminLogin";
+import { Login } from "./components/Login";
+import { Register } from "./components/Register";
+import {About} from "./components/About";
+import {Contact} from "./components/Contact";
+import {Booking} from "./components/Booking"
+import {Flight} from "./components/Flight";
+import { Home } from "./components/Home";
+import { AdminHome } from "./components/AdminHome";
+import { AddAirPort } from "./components/AddAirport";
+import { Display } from "./components/Display";
+import { AdminLogin } from "./components/AdminLogin";
 
 function App() {
   const navigate = useNavigate();

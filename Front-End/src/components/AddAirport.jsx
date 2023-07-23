@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Footer } from "./Footer";
 import "./Flight.css"; // Import the CSS file
 import { Header } from "./Header";
-import auth from "./services/airport_service";
+import auth from "../services/airport_service";
 
 export const AddAirPort = () => {
   const [airportCode, setAirportCode] = useState("");

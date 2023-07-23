@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FlightService from "./services/flight_service";
+import FlightService from "../services/flight_service";
 import { Footer } from "./Footer";
 import "./Flight.css"; // Import the CSS file
 import { Header } from "./Header";

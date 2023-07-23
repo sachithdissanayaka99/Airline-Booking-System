@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./nav.css";
-import AuthService from "./services/auth.service";
+import AuthService from "../services/auth.service";
 
 export const Header = () => {
   const navigate = useNavigate();

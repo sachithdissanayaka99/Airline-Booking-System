@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./nav.css";
-import AuthService from "./services/auth.service";
+import AuthService from "../services/auth.service";
 
 export const Nav = () => {
   const navigate = useNavigate();
@@ -107,7 +107,7 @@ export const Nav = () => {
           align="center"
           alt="logo"
           className="logo"
-          src="src/components/Images/pngegg.png"
+          src="src/assets/Images/pngegg.png"
           onClick={() => handleItemClick("/")}
           />
 
