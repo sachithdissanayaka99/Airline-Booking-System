@@ -53,11 +53,45 @@ const getAllFlights = () => {
   });
 };
 
+// Gets available flights relavant to country from the API
+/*const getAvailableFlights = async (country) => {
+  return axios
+    .get(API_URL + `/available-flights?country=${country}`)
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    });
+};
+*/
+const getAvailableFlights = async (country) => {
+  try {
+    const response = await axios.get(`${API_URL}/available-flights`, {
+      params: { country }, // Pass the country parameter in the request
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to fetch available flights. Please try again later.");
+  }
+};
+
+const FlightService = {
+  getAvailableFlights,
+}
+
+
+const bookFlight = (flightId) => {
+  return axios.post(API_URL + `/book-flight/${flightId}`);
+};
+
+
 const auth = {
   addFlight,
   updateFlight,
   deleteFlight,
   getAllFlights,
+  getAvailableFlights,
+  bookFlight,
 };
+
 
 export default auth;

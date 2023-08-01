@@ -8,6 +8,7 @@ import { Register } from "./Register";
 import {About} from "./About";
 import {Contact} from "./Contact";
 import {Booking} from "./Booking"
+import AvailableFlights from "./AvailableFlights";  //Add by Hiru
 import {Flight} from "./Flight";
 import { Home } from "./Home";
 import { AdminHome } from "./AdminHome";
@@ -15,10 +16,16 @@ import { AddAirPort } from "./AddAirport";
 import { Display } from "./Display";
 import { AdminLogin } from "./AdminLogin";
 
+
+
+
+
 function App() {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState(undefined);
   const [currentForm, setCurrentForm] = useState("login");
+  const [country, setCountry] = useState("");
+
   const toggleForm = (formName) => {
     setCurrentForm(formName);
   };
@@ -45,6 +52,9 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
           <Route path="/Booking" element={<Booking />} />
+          
+          <Route path="/available-flights" element={<AvailableFlights country={country} />} />  // Pass the country as a prop
+
           <Route path="/admin" element={<AdminHome />} />
           <Route path="/flight" element={<Flight />} />
           <Route path="/airport" element={<AddAirPort />} />

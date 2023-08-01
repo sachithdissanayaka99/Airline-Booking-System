@@ -3,6 +3,7 @@ package com.AirlineBookingSystem.Controller;
 
 import com.AirlineBookingSystem.Dto.FlightDto;
 import com.AirlineBookingSystem.Dto.ResponseDto;
+import com.AirlineBookingSystem.Model.FlightModel;
 import com.AirlineBookingSystem.Service.FlightService;
 import com.AirlineBookingSystem.Utill.VariableList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,6 +112,14 @@ public class FlightController {
         }
     }
 
+    //Edited by Hirushi
+    @GetMapping("/available-flights")
+    public List<FlightDto> getAvailableFlights(@RequestParam("country") String country) {
+        return flightService.getAvailableFlights(country);
+    }
+
+
+
     @DeleteMapping(value = "/deleteFlight/{flightId}")
     public ResponseEntity deleteFlight(@PathVariable int flightId) {
 
@@ -140,6 +149,31 @@ public class FlightController {
 
     }
 
+
+    @PostMapping("/book-flight/{flightId}")
+    public ResponseEntity<String> bookFlight(@PathVariable int flightId) {
+        try {
+            FlightModel flight = flightService.getFlightById(flightId);
+            if (flight == null) {
+                return new ResponseEntity<>("Flight not found.", HttpStatus.NOT_FOUND);
+            }
+
+            // Check if there are available seats on the flight
+            int bookedSeats = Integer.parseInt(String.valueOf(flight.getBookedSeat()));
+            int totalSeats = Integer.parseInt(String.valueOf(flight.getTotalNumOfSeat()));
+            if (bookedSeats >= totalSeats) {
+                return new ResponseEntity<>("No available seats on this flight.", HttpStatus.BAD_REQUEST);
+            }
+            // Update booked and available seats
+            flight.setBookedSeat(bookedSeats + 1);
+            flight.setTotalNumOfSeat(totalSeats - 1);
+
+            flightService.saveFlight(flight);
+            return new ResponseEntity<>("Flight successfully booked.", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Failed to book the flight. Please try again later.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 
 }

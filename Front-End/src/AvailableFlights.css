@@ -1,0 +1,48 @@
+
+.AvailableFlightsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Set a minimum height to ensure the content takes up the entire viewport */
+  background-color: #f0f0f0; /* Add a background color to distinguish the content area */
+}
+
+
+.AvailableFlightsTitle {
+  display: flex;
+  align-items : center;
+}
+
+.AvailableFlightsTitle h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0250a3; /* Set the color to your desired highlight color */
+  margin-right: 20px; /* Add some space between the title and the content */
+}
+
+.AvailableFlights label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.AvailableFlights input {
+  width: 300px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.AvailableFlights p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.AvailableFlights .error-message {
+  color: red;
+  font-size: 16px;
+  margin-bottom: 20px;
+}

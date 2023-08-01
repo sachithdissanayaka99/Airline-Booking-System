@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+//Added by Hirushi
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 @NoArgsConstructor
@@ -19,10 +22,11 @@ public class FlightModel {
     private Integer flightId;
     private Integer airportCode;
     private String flightStatus;
-    private String totalNumOfSeat;
-    private String bookedSeat;
+    private Integer totalNumOfSeat;
+    private Integer bookedSeat;
     private String arrivalTime;
     private String departureTime;
-
+    private String country;
 
 }
+
