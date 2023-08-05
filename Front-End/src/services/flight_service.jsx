@@ -2,8 +2,18 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/v1/flight";
 
-// Registers a user by making a POST request to the API
-const addFlight = (flightId, airportCode, flightStatus, totalNumOfSeat, bookedSeat, arrivalTime, departureTime) => {
+// Adds a flight by making a POST request to the API
+const addFlight = (
+  flightId,
+  airportCode,
+  flightStatus,
+  totalNumOfSeat,
+  bookedSeat,
+  arrivalTime,
+  departureTime,
+  flightDate,
+  departureCountry // Include flightDate and departureCountry
+) => {
   return axios
     .post(API_URL + "/saveFlight", {
       flightId,
@@ -13,6 +23,8 @@ const addFlight = (flightId, airportCode, flightStatus, totalNumOfSeat, bookedSe
       bookedSeat,
       arrivalTime,
       departureTime,
+      flightDate, // Include flightDate in the request
+      departureCountry // Include departureCountry in the request
     })
     .then((response) => {
       console.log(response);
@@ -21,7 +33,17 @@ const addFlight = (flightId, airportCode, flightStatus, totalNumOfSeat, bookedSe
 };
 
 // Updates a flight by making a PUT request to the API
-const updateFlight = (flightId, airportCode, flightStatus, totalNumOfSeat, bookedSeat, arrivalTime, departureTime) => {
+const updateFlight = (
+  flightId,
+  airportCode,
+  flightStatus,
+  totalNumOfSeat,
+  bookedSeat,
+  arrivalTime,
+  departureTime,
+  flightDate,
+  departureCountry // Include flightDate and departureCountry
+) => {
   return axios
     .put(API_URL + `/updateFlight/${flightId}`, {
       airportCode,
@@ -30,6 +52,8 @@ const updateFlight = (flightId, airportCode, flightStatus, totalNumOfSeat, booke
       bookedSeat,
       arrivalTime,
       departureTime,
+      flightDate, // Include flightDate in the request
+      departureCountry // Include departureCountry in the request
     })
     .then((response) => {
       console.log(response);
@@ -53,11 +77,11 @@ const getAllFlights = () => {
   });
 };
 
-const auth = {
+const FlightService = {
   addFlight,
   updateFlight,
   deleteFlight,
   getAllFlights,
 };
 
-export default auth;
+export default FlightService;

@@ -6,7 +6,7 @@ import "./App.css";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import {About} from "./components/About";
-import {Contact} from "./components/Contact";
+import {MyBooking} from "./components/MyBooking";
 import {Booking} from "./components/Booking"
 import {Flight} from "./components/Flight";
 import { Home } from "./components/Home";
@@ -14,6 +14,8 @@ import { AdminHome } from "./components/AdminHome";
 import { AddAirPort } from "./components/AddAirport";
 import { Display } from "./components/Display";
 import { AdminLogin } from "./components/AdminLogin";
+import { BookingForm } from "./components/BookingForm";
+
 
 function App() {
   const navigate = useNavigate();
@@ -42,7 +44,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/About" element={<About />} />
-          <Route path="/Contact" element={<Contact />} />
+          <Route path="/MyBooking" element={<MyBooking />} />
           <Route path="/register" element={<Register />} />
           <Route path="/Booking" element={<Booking />} />
           <Route path="/admin" element={<AdminHome />} />
@@ -50,6 +52,8 @@ function App() {
           <Route path="/airport" element={<AddAirPort />} />
           <Route path="/display" element={<Display />} />
           <Route path="/adminLogin" element={<AdminLogin />} />
+          <Route path="/bookingForm" element={<BookingForm />} />
+
         </Routes>
     </div>
   );

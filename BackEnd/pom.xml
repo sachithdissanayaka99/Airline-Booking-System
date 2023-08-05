@@ -11,8 +11,8 @@
     <groupId>com</groupId>
     <artifactId>AirlineBookingSystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>BabyDevelopingTrackingSystem</name>
-    <description>BabyDevelopingTrackingSystem</description>
+    <name>AirlineBookingSystem</name>
+    <description>AirlineBookingSystem</description>
     <properties>
         <java.version>17</java.version>
     </properties>

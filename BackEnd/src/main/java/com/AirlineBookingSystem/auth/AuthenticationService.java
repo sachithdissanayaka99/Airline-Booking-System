@@ -42,8 +42,8 @@ public class AuthenticationService {
               request.getLastname(),
               request.getEmail(),
               passwordEncoder.encode(request.getPassword()),
-              request.getRole(),
-              "Mother"
+              request.getRole()
+
       );
 
 

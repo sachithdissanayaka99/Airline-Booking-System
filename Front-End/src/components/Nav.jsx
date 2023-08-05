@@ -133,10 +133,10 @@ export const Nav = () => {
           )}
           {currentUser && (
             <li
-            className={location.pathname === "/Contact" ? "active" : ""}
-            onClick={() => handleItemClick("/Contact")}
+            className={location.pathname === "/MyBooking" ? "active" : ""}
+            onClick={() => handleItemClick("/MyBooking")}
             >
-              CONTACT<span></span>
+              MY BOOKINGS<span></span>
             </li>
           )}
           

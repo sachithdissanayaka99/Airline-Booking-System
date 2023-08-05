@@ -4,16 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class BookingDto{
+import java.time.LocalDate;
 
-    private int id;
-    private String status;
-    private int seatNumber;
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class BookingDto {
+    private int flightId;
+    private String flightStatus;
+    private Integer seatNumber;
     private String paymentInfo;
     private String fareClass;
-    private int passengerId;
-    private int reservationId;
+    private Long passengerId;
+    private Long reservationId;
+    private Long selectedPromotion;
+    private String email;
+
+
 }

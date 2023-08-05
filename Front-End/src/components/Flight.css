@@ -19,8 +19,8 @@
   border: 1px solid #ccc;
   padding: 30px 50px; /* Decreased padding to decrease form height */
   background-color: #334f68;
-  margin-top: 5px; /* Adjusted margin-top to reduce the gap */
-  margin-bottom: 5px; /* Adjusted margin-bottom to reduce the gap */
+  margin-top: 10px; /* Adjusted margin-top to reduce the gap */
+  margin-bottom: 100px; /* Adjusted margin-bottom to reduce the gap */
   border-radius: 4px;
 }
   

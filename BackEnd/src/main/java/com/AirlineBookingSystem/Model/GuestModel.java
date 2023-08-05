@@ -17,11 +17,11 @@ import java.util.List;
 @Table
 public class GuestModel extends User{
 
-    private String isMotherFatherGuardian;
+    private String guest;
 
 
-    public GuestModel(String firstname, String lastname, String email, String password, Role role, String isMotherFatherGuardian) {
+    public GuestModel(String firstname, String lastname, String email, String password, Role role) {
         super(firstname, lastname, email, password, role);
-        this.isMotherFatherGuardian = isMotherFatherGuardian;
+
     }
 }

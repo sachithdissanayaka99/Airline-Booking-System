@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,6 +25,10 @@ public class FlightModel {
     private String bookedSeat;
     private String arrivalTime;
     private String departureTime;
+    private LocalDate flightDate;
+    private String departureCountry;
+
+
 
 
 }

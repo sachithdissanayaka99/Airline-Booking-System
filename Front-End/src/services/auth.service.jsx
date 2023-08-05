@@ -49,11 +49,14 @@ const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
 
+
+
 const auth = {
   signup,
   login,
   logout,
   getCurrentUser,
+ 
 };
 
 export default auth;

@@ -5,65 +5,52 @@ import "./Display.css";
 
 export const Display = () => {
   const [flightData, setFlightData] = useState([
-    {
-      flightId: 1,
-      airportCode: 2,
-      flightStatus: "On Time",
-      totalNumOfSeat: 100,
-      bookedSeat: 50,
-      arrivalTime: "10:00 AM",
-      departureTime: "12:00 PM"
-    },
-    {
-      flightId: 2,
-      airportCode: "ABC",
-      flightStatus: "On Time",
-      totalNumOfSeat: 100,
-      bookedSeat: 50,
-      arrivalTime: "10:00 AM",
-      departureTime: "12:00 PM"
-    },
-    {
-      flightId: 3,
-      airportCode: "ABC",
-      flightStatus: "On Time",
-      totalNumOfSeat: 100,
-      bookedSeat: 50,
-      arrivalTime: "10:00 AM",
-      departureTime: "12:00 PM"
-    },
-    // Add more flight data objects here...
+    // Flight data array...
   ]);
 
   const [airportData, setAirportData] = useState([
-    {
-      airportCode: "ABC",
-      name: "Airport 1",
-      city: "City 1",
-      country: "Country 1",
-      contactInfo: "Contact 1"
-    },
-    {
-      airportCode: "ABC",
-      name: "Airport 1",
-      city: "City 1",
-      country: "Country 1",
-      contactInfo: "Contact 1"
-    },
-
-    {
-      airportCode: "ABC",
-      name: "Airport 1",
-      city: "City 1",
-      country: "Country 1",
-      contactInfo: "Contact 1"
-    },
-  
-    // Add more airport data objects here...
+    // Airport data array...
   ]);
-  
 
-  
+  const [editingFlightId, setEditingFlightId] = useState(null);
+  const [editingAirportCode, setEditingAirportCode] = useState(null);
+
+  const handleFlightUpdate = (flightId) => {
+    setEditingFlightId(flightId);
+  };
+
+  const handleFlightDelete = (flightId) => {
+    // Implement flight data deletion logic
+  };
+
+  const handleAirportUpdate = (airportCode) => {
+    setEditingAirportCode(airportCode);
+  };
+
+  const handleAirportDelete = (airportCode) => {
+    // Implement airport data deletion logic
+  };
+
+  const handleFlightFieldChange = (event, field, flightId) => {
+    const updatedFlightData = flightData.map((flight) => {
+      if (flight.flightId === flightId) {
+        return { ...flight, [field]: event.target.value };
+      }
+      return flight;
+    });
+    setFlightData(updatedFlightData);
+  };
+
+  const handleAirportFieldChange = (event, field, airportCode) => {
+    const updatedAirportData = airportData.map((airport) => {
+      if (airport.airportCode === airportCode) {
+        return { ...airport, [field]: event.target.value };
+      }
+      return airport;
+    });
+    setAirportData(updatedAirportData);
+  };
+
   return (
     <div>
       <Header />
@@ -86,15 +73,34 @@ export const Display = () => {
             {flightData.map((flight) => (
               <tr className="tr" key={flight.flightId}>
                 <td className="td">{flight.flightId}</td>
-                <td className="td">{flight.airportCode}</td>
+                <td className="td">
+                  {editingFlightId === flight.flightId ? (
+                    <input
+                      type="text"
+                      value={flight.airportCode}
+                      onChange={(e) => handleFlightFieldChange(e, "airportCode", flight.flightId)}
+                    />
+                  ) : (
+                    flight.airportCode
+                  )}
+                </td>
                 <td className="td">{flight.flightStatus}</td>
                 <td className="td">{flight.totalNumOfSeat}</td>
                 <td className="td">{flight.bookedSeat}</td>
                 <td className="td">{flight.arrivalTime}</td>
                 <td className="td">{flight.departureTime}</td>
                 <td className="button-container">
-                  <button onClick={() => handleFlightUpdate(flight.flightId)}>UPDATE</button>
-                  <button onClick={() => handleFlightDelete(flight.flightId)}>DELETE</button>
+                  {editingFlightId === flight.flightId ? (
+                    <>
+                      <button onClick={() => setEditingFlightId(null)}>SAVE</button>
+                      <button onClick={() => setEditingFlightId(null)}>CANCEL</button>
+                    </>
+                  ) : (
+                    <>
+                      <button onClick={() => handleFlightUpdate(flight.flightId)}>UPDATE</button>
+                      <button onClick={() => handleFlightDelete(flight.flightId)}>DELETE</button>
+                    </>
+                  )}
                 </td>
               </tr>
             ))}
@@ -116,14 +122,41 @@ export const Display = () => {
           <tbody>
             {airportData.map((airport) => (
               <tr className="tr" key={airport.airportCode}>
-                <td className="td">{airport.airportCode}</td>
-                <td className="td">{airport.name}</td>
-                <td className="td">{airport.city}</td>
-                <td className="td">{airport.country}</td>
-                <td className="td">{airport.contactInfo}</td>
+                <td className="td">
+                  {editingAirportCode === airport.airportCode ? (
+                    <input
+                      type="text"
+                      value={airport.airportCode}
+                      onChange={(e) => handleAirportFieldChange(e, "airportCode", airport.airportCode)}
+                    />
+                  ) : (
+                    airport.airportCode
+                  )}
+                </td>
+                <td className="td">
+                  {editingAirportCode === airport.airportCode ? (
+                    <input
+                      type="text"
+                      value={airport.name}
+                      onChange={(e) => handleAirportFieldChange(e, "name", airport.airportCode)}
+                    />
+                  ) : (
+                    airport.name
+                  )}
+                </td>
+                {/* Render other fields similarly */}
                 <td className="button-container1">
-                  <button onClick={() => handleAirportUpdate(airport.airportCode)}>UPDATE</button>
-                  <button onClick={() => handleAirportDelete(airport.airportCode)}>DELETE</button>
+                  {editingAirportCode === airport.airportCode ? (
+                    <>
+                      <button onClick={() => setEditingAirportCode(null)}>SAVE</button>
+                      <button onClick={() => setEditingAirportCode(null)}>CANCEL</button>
+                    </>
+                  ) : (
+                    <>
+                      <button onClick={() => handleAirportUpdate(airport.airportCode)}>UPDATE</button>
+                      <button onClick={() => handleAirportDelete(airport.airportCode)}>DELETE</button>
+                    </>
+                  )}
                 </td>
               </tr>
             ))}

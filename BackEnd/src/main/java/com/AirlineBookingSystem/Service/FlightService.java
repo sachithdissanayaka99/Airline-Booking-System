@@ -11,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -59,4 +61,16 @@ public class FlightService {
             return VariableList.R$P_NO_DATA_FOUND;
         }
     }
+
+    public List<FlightDto> getFlightsByDepartureCountryAndDate(String departureCountry, LocalDate flightDate) {
+        List<FlightModel> allFlights = flightRepository.findAll();
+
+        return allFlights.stream()
+                .filter(flight -> flight.getDepartureCountry().equalsIgnoreCase(departureCountry)
+                        && flight.getFlightDate().isEqual(flightDate))
+                .map(flight -> modelMapper.map(flight, FlightDto.class))
+                .collect(Collectors.toList());
+    }
+
+
 }

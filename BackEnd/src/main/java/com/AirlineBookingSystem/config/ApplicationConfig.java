@@ -1,8 +1,4 @@
 package com.AirlineBookingSystem.config;
-
-
-
-
 import com.AirlineBookingSystem.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
