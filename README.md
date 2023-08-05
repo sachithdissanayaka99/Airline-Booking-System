@@ -39,6 +39,7 @@ The following entities are used in the database system:
 3. Configure the database connection.
 4. Run the database migration scripts to set up the schema.
 5. Start the server and launch the application.
+6. Use the root user name as root and password as password
 
 ## Database Schema
 
